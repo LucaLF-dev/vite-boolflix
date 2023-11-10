@@ -1,7 +1,7 @@
 <script >
 
 import AppMainContent from './components/AppMainContent.vue';
-import AppHeader from './components/appHeader.vue';
+import  AppHeader from './components/AppHeader.vue';
 import axios from 'axios';
 import {store} from './store'
 

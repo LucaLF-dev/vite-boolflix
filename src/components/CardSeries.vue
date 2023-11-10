@@ -1,21 +1,17 @@
 <script>
-
-
 export default {
-  data() {
-    return {
-      
-    }  
-  },
-}
+	data() {
+		return {};
+	},
+};
 </script>
 
 <template>
- 
+	<div class="card">
+		<figure class="card-image"></figure>
+
+		<div class="card-body"></div>
+	</div>
 </template>
 
-<style lang="scss" scoped>
-
-
-
-</style>
+<style lang="scss" scoped></style>
