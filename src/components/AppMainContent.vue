@@ -41,15 +41,16 @@ export default {
 
 <style lang="scss" scoped>
 .app__main {
+	width: 100%;
 	flex-grow: 1;
 	background-color: grey;
 	padding: 90px 20px;
 }
-
 .row {
 	display: flex;
-	flex-wrap: wrap;
-
+	flex-wrap: nowrap;
+	
+	
 	.col-4 {
 		flex-basis: calc((100% / 12) * 4);
 		padding: 10px;
