@@ -19,14 +19,20 @@ export default {
 <template>
 	<main class="app__main">
 		<div class="main-wrapper">
-			<div class="row">
-				<div class="col-4" v-for="(movie) in this.store.movies">
-					<CardFilm :item="movie"/>
+			<div class="wrapper-films">
+				<h1>Film</h1>
+				<div class="row">
+					<div class="col-4" v-for="movie in this.store.movies">
+						<CardFilm :item="movie" />
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-4" v-for="serie in this.store.series" >
-					<CardSeries :item="serie"/>
+			<div class="wrapper-series">
+				<h1>Serie</h1>
+				<div class="row">
+					<div class="col-4" v-for="serie in this.store.series">
+						<CardSeries :item="serie" />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -43,13 +49,10 @@ export default {
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	
 
 	.col-4 {
 		flex-basis: calc((100% / 12) * 4);
 		padding: 10px;
 	}
 }
-
-
 </style>
