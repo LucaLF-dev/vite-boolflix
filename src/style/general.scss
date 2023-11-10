@@ -1,0 +1,30 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol,
+menu {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+
+img {
+    max-width: 100%;
+}
+
+figure  {
+    
+    img {
+        display: block;
+        width: 100%;
+    }
+}
