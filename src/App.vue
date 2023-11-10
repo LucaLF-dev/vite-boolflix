@@ -28,20 +28,20 @@ export default {
           query: this.store.searchText,
         }
       }).then((res) => {
-        const movies = res.data;
+        const movies = res.data.results;
         console.log(res, movies);
 
         this.store.movies = movies;
       });
     },
     showSerie() {
-      axios.get('https://api.themoviedb.org/3/search/series', {
+      axios.get('https://api.themoviedb.org/3/search/tv', {
         params: {
           api_key: this.api_key,
           query: this.store.searchText,
         }
       }).then((res) => {
-        const series = res.data;
+        const series = res.data.results;
         console.log(res, series);
 
         this.store.series = series;

@@ -14,7 +14,7 @@ export default {
 
 <template>
 	<div class="card" >
-		<figure class="card-image">{{ item. }}</figure>
+		<figure class="card-image"></figure>
 
 		<div class="card-body"></div>
 	</div>
