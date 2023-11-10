@@ -41,7 +41,7 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-    overflow-y: hidden;
+   
     gap: 30px;
 
 		.header-logo {
