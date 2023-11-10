@@ -5,6 +5,7 @@ export default {
 	data() {
 		return {
 			store: store,
+			
 		};
 	},
 };
@@ -15,8 +16,9 @@ export default {
 		<div class="header__wrapper">
 			<div class="header-logo">boolflix</div>
 			<div class="header-search">
-				<button class="search-button">search</button>
+				<button @click="$emit('searchPerform')" class="search-button">search</button>
 				<input
+				v-model="store.searchText" :log="console.log(store.searchText)"
 					class="search-input"
 					type="text"
 					placeholder="cerca il tuo film o la tua serie preferita"

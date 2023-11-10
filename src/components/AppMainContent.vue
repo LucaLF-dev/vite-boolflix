@@ -20,13 +20,13 @@ export default {
 	<main class="app__main">
 		<div class="main-wrapper">
 			<div class="row">
-				<div class="col-4">
-					<CardFilm />
+				<div class="col-4" v-for="(movie) in this.store.movies">
+					<CardFilm :item="movie"/>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-4">
-					<CardSeries />
+				<div class="col-4" v-for="serie in this.store.series" >
+					<CardSeries :item="serie"/>
 				</div>
 			</div>
 		</div>

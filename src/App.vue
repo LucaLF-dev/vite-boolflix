@@ -1,34 +1,63 @@
-<script >
-
-import AppMainContent from './components/AppMainContent.vue';
-import  AppHeader from './components/AppHeader.vue';
-import axios from 'axios';
-import {store} from './store'
+<script>
+import AppMainContent from "./components/AppMainContent.vue";
+import AppHeader from "./components/AppHeader.vue";
+import axios from "axios";
+import { store } from "./store";
 
 export default {
   components: {
-     AppMainContent,
-     AppHeader,
-    
+    AppMainContent,
+    AppHeader,
   },
   data() {
     return {
-     store: store,
-    }
+      store: store,
+      api_key: '73b887a165d53aed9c90ab19fdc56987',
+    };
   },
-  
-    
-}
+  methods: {
+    searchAll() {
+      this.showFilm(),
+        this.showSerie();
+    },
 
+    showFilm() {
+      axios.get('https://api.themoviedb.org/3/search/movie', {
+        params: {
+          api_key: this.api_key,
+          query: this.store.searchText,
+        }
+      }).then((res) => {
+        const movies = res.data;
+        console.log(res, movies);
+
+        this.store.movies = movies;
+      });
+    },
+    showSerie() {
+      axios.get('https://api.themoviedb.org/3/search/series', {
+        params: {
+          api_key: this.api_key,
+          query: this.store.searchText,
+        }
+      }).then((res) => {
+        const series = res.data;
+        console.log(res, series);
+
+        this.store.series = series;
+      });
+    },
+  }
+
+
+};
 </script>
 
 <template>
-   <AppHeader/>
-   <AppMainContent/>
- 
+  <AppHeader @searchPerform="searchAll" />
+  <AppMainContent />
 </template>
 
 <style lang="scss">
-@use './style/general.scss';
-
+@use "./style/general.scss";
 </style>
