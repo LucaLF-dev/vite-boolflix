@@ -5,6 +5,7 @@ export default {
   components : {
   LangFlag,
   },
+  emits: ['getImage'],
   props: {
         item: {
             type: Object,
@@ -14,12 +15,22 @@ export default {
 	data() {
 		return {};
 	},
+  methods: {
+    getImagePath (value) {
+			const imgUrl = 'https://image.tmdb.org/t/p/w342'
+			return imgUrl + value
+			
+		}
+  }
 };
 </script>
 
 <template>
 	<div class="card" >
-		<figure class="card-image"></figure>
+		<figure class="card-image">
+      <img :src="getImagePath(
+        item.poster_path)"  alt="">
+    </figure>
 
 		<div class="card-body">
       <div>
@@ -40,4 +51,28 @@ export default {
 
 <style lang="scss" scoped>
 
+.card {
+   background-color: transparent;
+   position: relative;
+  
+   .card-body {
+        position: absolute;
+        inset: 0;
+        transition: opacity 0.4s ease-in-out;
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        color: white;
+        
+   }
+
+   &:hover {
+    
+     .card-body {
+       display: flex;
+       background-color: rgba(0, 0, 0, 0.7);
+       backdrop-filter: blur(10px);
+     }
+   }
+}
 </style>

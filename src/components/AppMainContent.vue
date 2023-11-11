@@ -11,8 +11,17 @@ export default {
 	data() {
 		return {
 			store: store,
+			posterSize: 'w342',
 		};
 	},
+	methods: {
+		getImagePath (value) {
+			const imgUrl = `https://image.tmdb.org/t/p/w342${this.posterSize}`
+			const img = imgUrl + value
+			return img
+			console.log('getImagePath', img)
+		}
+	}
 };
 </script>
 
@@ -23,7 +32,7 @@ export default {
 				<h1>Film</h1>
 				<div class="row">
 					<div class="col-4" v-for="movie in this.store.movies">
-						<CardFilm :item="movie" />
+						<CardFilm :item="movie" @get-image="getImagePath" />
 					</div>
 				</div>
 			</div>
@@ -40,29 +49,24 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
 .app__main {
-	flex-shrink: 0;
+	
 	width: 100%;
 	background-color: grey;
 	padding: 90px 20px;
 
-	.wrapper-films {
-		width: 100%;
-		height: 500px;
-		overflow-x: hidden;
-	}
 }
 .row {
-	width: 100%;
 	display: flex;
-	flex-wrap: nowrap;
+
 	
 	
 	
 	.col-4 {
 		flex-basis: calc(100% / 12) * 4;
 		height: 100%;
-		padding: 20px;
+		padding: 5px;
 		
 	}
 }

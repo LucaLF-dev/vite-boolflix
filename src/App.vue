@@ -29,7 +29,7 @@ export default {
         }
       }).then((res) => {
         const movies = res.data.results;
-        console.log(res, movies);
+        
 
         this.store.movies = movies;
       });
@@ -42,7 +42,7 @@ export default {
         }
       }).then((res) => {
         const series = res.data.results;
-        console.log(res, series);
+        
 
         this.store.series = series;
       });
