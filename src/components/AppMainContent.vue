@@ -41,19 +41,29 @@ export default {
 
 <style lang="scss" scoped>
 .app__main {
+	flex-shrink: 0;
 	width: 100%;
-	flex-grow: 1;
 	background-color: grey;
 	padding: 90px 20px;
+
+	.wrapper-films {
+		width: 100%;
+		height: 500px;
+		overflow-x: hidden;
+	}
 }
 .row {
+	width: 100%;
 	display: flex;
 	flex-wrap: nowrap;
 	
 	
+	
 	.col-4 {
-		flex-basis: calc((100% / 12) * 4);
-		padding: 10px;
+		flex-basis: calc(100% / 12) * 4;
+		height: 100%;
+		padding: 20px;
+		
 	}
 }
 </style>

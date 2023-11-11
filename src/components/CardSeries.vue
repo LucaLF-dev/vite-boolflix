@@ -18,16 +18,16 @@ export default {
 
 		<div class="card-body">
       <div>
-        {{ item.title }}
+        Titolo : {{ item.name }}
       </div>
       <div>
-        {{ item.original_title }}
+        Titolo Originale : {{ item.original_name }}
       </div>
       <div>
-        {{ item.original_language }}
+        Lingua :  <lang-flag :iso="item.original_language"  />
       </div>
       <div>
-        {{ item.vote_average }}
+        Voto : {{ item.vote_average }}
       </div>
     </div>
     

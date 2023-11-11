@@ -1,5 +1,10 @@
 <script>
+ import LangFlag from 'vue-lang-code-flags';
+
 export default {
+  components : {
+  LangFlag,
+  },
   props: {
         item: {
             type: Object,
@@ -18,19 +23,21 @@ export default {
 
 		<div class="card-body">
       <div>
-        {{ item.title }}
+        Titolo : {{ item.title }}
       </div>
       <div>
-        {{ item.original_title }}
+        Titolo Originale : {{ item.original_title }}
       </div>
       <div>
-        {{ item.original_language }}
+        Lingua :  <lang-flag :iso="item.original_language"  />
       </div>
       <div>
-        {{ item.vote_average }}
+        Voto : {{ item.vote_average }}
       </div>
     </div>
 	</div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
