@@ -30,14 +30,15 @@ export default {
 
 <style lang="scss" scoped>
 .app-header {
+	width: 100%;
 	position: fixed;
 	left: 0;
 	right: 0;
 	top: 0;
-	background-color: black;
-	padding: 15px 20px;
-  overflow: hidden;
-  z-index: 999;
+	background-color:#141414;
+	padding: 15px 15px;
+	z-index: 999;
+	margin: 0;
 	
 
 	.header__wrapper {

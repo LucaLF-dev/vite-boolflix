@@ -1,5 +1,10 @@
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 export default {
+  components:{
+    FontAwesomeIcon,
+  }, 
   props: {
         item: {
             type: Object,
@@ -8,10 +13,15 @@ export default {
     },
 	data() {
 		return {
-      imageNot: 'NO IMAGE'
+      
+      maxVote: 5,
+      // fixedVote: 0,
+      
+
     };
 	},methods: {
     getImagePath () {
+
       if (this.item.poster_path === null  ) {
         const imgNot = "https://www.popcorn.app/assets/app/images/placeholder-movieimage.png"
         return imgNot
@@ -19,8 +29,22 @@ export default {
 			const imgUrl = 'https://image.tmdb.org/t/p/w342'
 			return imgUrl + this.item.poster_path
 			
-		}
-  }
+		},
+    // getVote() {
+    //   const finalValue = parseInt(this.item.vote_average / 2);
+    //    return finalValue;
+    //  }
+     
+  },
+  computed: {
+    getVote() {
+      return parseInt(this.item.vote_average / 2);
+    }
+  },
+  created() {
+  //   const finalValue = parseInt(this.item.vote_average / 2);
+  //   this.fixed = finalValue;
+   },
 };
 </script>
 
@@ -49,12 +73,15 @@ export default {
         Titolo Originale : {{ item.original_name }}
       </div>
     </div>
-      <div>
+      <div class="language">
         Lingua :  <lang-flag :iso="item.original_language"  />
       </div>
-      <div>
-        Voto : {{ item.vote_average }}
+      <div class="vote-stars">
+        Voto : <span v-for="n in getVote" ><font-awesome-icon class="star-icon voted" :icon="['fas', 'star']" /></span>
+      <span v-for="n in (this.maxVote - getVote)" ><font-awesome-icon class="star-icon" :icon="['fas', 'star']" /></span>
       </div>
+      <!-- <p>{{ fixed }}</p> -->
+      
     </div>
     
 	</div>
@@ -65,6 +92,8 @@ export default {
    background-color: transparent;
    position: relative;
   
+   
+   
    .card-body {
         position: absolute;
         inset: 0;
@@ -73,7 +102,15 @@ export default {
         flex-direction: column;
         justify-content: flex-start;
         color: white;
-        
+     
+        .vote-stars {
+          .star-icon {
+
+            &.voted {
+             color: yellow;
+            }
+          }
+        }
    }
 
    &:hover {
