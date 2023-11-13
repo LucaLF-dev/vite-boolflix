@@ -1,11 +1,5 @@
 <script>
- import LangFlag from 'vue-lang-code-flags';
-
 export default {
-  components : {
-  LangFlag,
-  },
-  emits: ['getImage'],
   props: {
         item: {
             type: Object,
@@ -14,11 +8,10 @@ export default {
     },
 	data() {
 		return {};
-	},
-  methods: {
-    getImagePath (value) {
+	},methods: {
+    getImagePath () {
 			const imgUrl = 'https://image.tmdb.org/t/p/w342'
-			return imgUrl + value
+			return imgUrl + this.item.poster_path
 			
 		}
   }
@@ -26,19 +19,30 @@ export default {
 </script>
 
 <template>
-	<div class="card" >
+	<div class="card">
 		<figure class="card-image">
-      <img :src="getImagePath(
-        item.poster_path)"  alt="">
+      <img :src="getImagePath()"  alt="">
     </figure>
 
+   
+
 		<div class="card-body">
-      <div>
+      <div class="firt-title">
+      <div v-if="this.item.title !== undefined">
         Titolo : {{ item.title }}
       </div>
-      <div>
+      <div v-else>
+       Titolo : {{ item.name }}
+      </div>
+</div>
+  <div class="original-title">
+      <div v-if="this.item.original_title !== undefined">
         Titolo Originale : {{ item.original_title }}
       </div>
+      <div v-else>
+        Titolo Originale : {{ item.original_name }}
+      </div>
+    </div>
       <div>
         Lingua :  <lang-flag :iso="item.original_language"  />
       </div>
@@ -46,11 +50,11 @@ export default {
         Voto : {{ item.vote_average }}
       </div>
     </div>
+    
 	</div>
 </template>
 
 <style lang="scss" scoped>
-
 .card {
    background-color: transparent;
    position: relative;
@@ -75,4 +79,6 @@ export default {
      }
    }
 }
+
+
 </style>

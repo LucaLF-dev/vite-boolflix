@@ -1,12 +1,10 @@
 <script>
 import { store } from "../store";
-import CardFilm from "./CardFilm.vue";
-import CardSeries from "./CardSeries.vue";
+import AppCard from "./AppCard.vue";
 
 export default {
 	components: {
-		CardFilm,
-		CardSeries,
+		AppCard,
 	},
 	data() {
 		return {
@@ -15,12 +13,7 @@ export default {
 		};
 	},
 	methods: {
-		getImagePath (value) {
-			const imgUrl = `https://image.tmdb.org/t/p/w342${this.posterSize}`
-			const img = imgUrl + value
-			return img
-			console.log('getImagePath', img)
-		}
+		
 	}
 };
 </script>
@@ -31,17 +24,24 @@ export default {
 			<div class="wrapper-films">
 				<h1>Film</h1>
 				<div class="row">
-					<div class="col-4" v-for="movie in this.store.movies">
-						<CardFilm :item="movie" @get-image="getImagePath" />
+					
+					<div  class="col-4" v-for="movie in this.store.movies" >
+						<AppCard :item="movie"  />
 					</div>
+					<div v-if="!store.movies.length"  class="empty-search">
+    <p>Non ci sono risultati</p>
+  </div>
 				</div>
 			</div>
 			<div class="wrapper-series">
 				<h1>Serie</h1>
 				<div class="row">
-					<div class="col-4" v-for="serie in this.store.series">
-						<CardSeries :item="serie" />
+					<div class="col-4" v-for="serie in this.store.series" >
+						<AppCard :item="serie" />
 					</div>
+					<div v-if="!store.series.length"  class="empty-search">
+    <p>Non ci sono risultati</p>
+  </div>
 				</div>
 			</div>
 		</div>
@@ -51,17 +51,16 @@ export default {
 <style lang="scss" scoped>
 
 .app__main {
-	
+	flex-grow: 1;
 	width: 100%;
+	height: 100%;
 	background-color: grey;
 	padding: 90px 20px;
 
 }
 .row {
 	display: flex;
-
-	
-	
+	flex-wrap: wrap;
 	
 	.col-4 {
 		flex-basis: calc(100% / 12) * 4;

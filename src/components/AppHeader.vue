@@ -18,7 +18,7 @@ export default {
 			<div class="header-search">
 				<button @click="$emit('searchPerform')" class="search-button">search</button>
 				<input
-				v-model="store.searchText" :log="console.log(store.searchText)"
+				v-model.trim="store.searchText" :log="console.log(store.searchText)"
 					class="search-input"
 					type="text"
 					placeholder="cerca il tuo film o la tua serie preferita"
@@ -37,6 +37,7 @@ export default {
 	background-color: black;
 	padding: 15px 20px;
   overflow: hidden;
+  z-index: 999;
 	
 
 	.header__wrapper {

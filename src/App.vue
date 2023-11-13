@@ -16,12 +16,12 @@ export default {
     };
   },
   methods: {
-    searchAll() {
-      this.showFilm(),
-        this.showSerie();
+    fetchAll() {
+      this.fetchFilm(),
+        this.fetchSerie();
     },
 
-    showFilm() {
+    fetchFilm() {
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
           api_key: this.api_key,
@@ -29,12 +29,12 @@ export default {
         }
       }).then((res) => {
         const movies = res.data.results;
-        
+        console.log( movies);
 
         this.store.movies = movies;
       });
     },
-    showSerie() {
+    fetchSerie() {
       axios.get('https://api.themoviedb.org/3/search/tv', {
         params: {
           api_key: this.api_key,
@@ -42,7 +42,7 @@ export default {
         }
       }).then((res) => {
         const series = res.data.results;
-        
+        console.log( series);
 
         this.store.series = series;
       });
@@ -54,7 +54,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader @searchPerform="searchAll" />
+  <AppHeader @searchPerform="fetchAll" />
   <AppMainContent />
 </template>
 
