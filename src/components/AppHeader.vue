@@ -18,7 +18,7 @@ export default {
 			<div class="header-search">
 				<button @click="$emit('searchPerform')" class="search-button">search</button>
 				<input
-				v-model.trim="store.searchText" :log="console.log(store.searchText)"
+				v-model.trim="store.searchText" @keyup.enter="$emit('searchPerform')"
 					class="search-input"
 					type="text"
 					placeholder="cerca il tuo film o la tua serie preferita"
