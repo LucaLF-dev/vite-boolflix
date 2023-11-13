@@ -57,27 +57,27 @@ export default {
    
 
 		<div class="card-body">
-      <div class="firt-title">
+      <div class="first-title">
       <div v-if="this.item.title !== undefined">
-        Titolo : {{ item.title }}
+         {{ item.title }}
       </div>
       <div v-else>
-       Titolo : {{ item.name }}
+        {{ item.name }}
       </div>
 </div>
   <div class="original-title">
       <div v-if="this.item.original_title !== undefined">
-        Titolo Originale : {{ item.original_title }}
+         {{ item.original_title }}
       </div>
       <div v-else>
-        Titolo Originale : {{ item.original_name }}
+         {{ item.original_name }}
       </div>
     </div>
       <div class="language">
-        Lingua :  <lang-flag :iso="item.original_language"  />
+        Language:<lang-flag :iso="item.original_language"  />
       </div>
       <div class="vote-stars">
-        Voto : <span v-for="n in getVote" ><font-awesome-icon class="star-icon voted" :icon="['fas', 'star']" /></span>
+        Voto: <span v-for="n in getVote" ><font-awesome-icon class="star-icon voted" :icon="['fas', 'star']" /></span>
       <span v-for="n in (this.maxVote - getVote)" ><font-awesome-icon class="star-icon" :icon="['fas', 'star']" /></span>
       </div>
       <!-- <p>{{ fixed }}</p> -->
@@ -102,6 +102,7 @@ export default {
         flex-direction: column;
         justify-content: flex-start;
         color: white;
+       
      
         .vote-stars {
           .star-icon {
@@ -116,12 +117,39 @@ export default {
    &:hover {
     
      .card-body {
+      padding: 30px;
        display: flex;
+       justify-content: center;
        background-color: rgba(0, 0, 0, 0.7);
        backdrop-filter: blur(10px);
      }
    }
 }
 
+.first-title {
+  font-size: 30px;
+  padding: 5px;
+  border-bottom: 2px solid white;
+  text-align: center;
+  
+}
+
+.original-title {
+   font-size: 20px;
+   text-align: center;
+   padding-top: 10px;
+}
+
+.language {
+  font-size: 15px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.vote-stars {
+  font-size: 15px;
+  padding-top: 15px;
+  text-align: center;
+}
 
 </style>

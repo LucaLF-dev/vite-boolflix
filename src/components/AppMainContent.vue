@@ -19,7 +19,7 @@ export default {
 <template>
 	<main class="app__main">
 		<div class="main-wrapper">
-			<div class="wrapper-films">
+			<div class="wrapper films" >
 				<h1 class="wrapper-title">Film</h1>
 				<div class="box">
 					<div class="col" v-for="movie in this.store.movies">
@@ -30,7 +30,7 @@ export default {
 					</div>
 				</div>
 			</div>
-			<div class="wrapper-title">
+			<div class="wrapper series">
 				<h1 class="wrapper-title">Serie</h1>
 				<div class="box">
 					<div class="col" v-for="serie in this.store.series">
@@ -47,17 +47,24 @@ export default {
 
 <style lang="scss" scoped>
 .app__main {
+	flex-grow: 1;
+	height: 100%;
 	background-color: #141414;
-	padding: 71px 20px;
+	padding: 71px 40px;
 
+	.wrapper {
+		margin-top: 50px;
+        margin-bottom: 30px;
+	
 	.wrapper-title {
        
 	margin-bottom: 25px;
 	}
 }
+}
 .box {
 	display: grid;
-	grid-template-columns: repeat(6, minmax(200px, 1fr));
+	grid-template-columns: repeat(6, minmax(300px, 1fr));
 
 	.col {
 		height: 100%;
