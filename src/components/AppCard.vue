@@ -7,9 +7,14 @@ export default {
         },
     },
 	data() {
-		return {};
+		return {
+      imageNot: 'NO IMAGE'
+    };
 	},methods: {
     getImagePath () {
+      if (this.item.poster_path === null || undefined ) {
+        return this.imageNot
+      }
 			const imgUrl = 'https://image.tmdb.org/t/p/w342'
 			return imgUrl + this.item.poster_path
 			
