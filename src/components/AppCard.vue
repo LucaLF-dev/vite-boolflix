@@ -12,8 +12,9 @@ export default {
     };
 	},methods: {
     getImagePath () {
-      if (this.item.poster_path === null || undefined ) {
-        return this.imageNot
+      if (this.item.poster_path === null  ) {
+        const imgNot = "https://www.popcorn.app/assets/app/images/placeholder-movieimage.png"
+        return imgNot
       }
 			const imgUrl = 'https://image.tmdb.org/t/p/w342'
 			return imgUrl + this.item.poster_path
