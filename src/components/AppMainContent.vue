@@ -49,13 +49,18 @@ export default {
 .app__main {
 	
 	width: 100%;
-	min-height: 100vh;
+	min-height: calc(100vh - 150px);
 	background-color: #141414;
-	padding: 150px 60px;
+	padding:  60px;
 
+	
 	.wrapper {
 		margin-top: 50px;
         margin-bottom: 30px;
+		overflow-x: auto;
+		scrollbar-width: thin;
+		padding-bottom: 10px;
+		
 	
 	.wrapper-title {
        font-size: 50px;
@@ -74,5 +79,20 @@ export default {
 		height: 100%;
 
 	}
+}
+
+.wrapper::-webkit-scrollbar {
+width: 10px;
+}
+.wrapper::-webkit-scrollbar-track {
+background-color: white;
+
+border-radius: 10px;
+
+}
+.wrapper::-webkit-scrollbar-thumb {
+border-radius: 10px;
+border: 2px solid white;
+background-color: #D91921 ;
 }
 </style>
