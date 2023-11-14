@@ -47,7 +47,10 @@ export default {
         this.store.series = series;
       });
     },
-  }
+  }, computed: {
+
+
+  },
 
 
 };

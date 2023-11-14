@@ -47,18 +47,19 @@ export default {
 
 <style lang="scss" scoped>
 .app__main {
-	flex-grow: 1;
-	height: 100%;
+	
+	width: 100%;
+	min-height: 100vh;
 	background-color: #141414;
-	padding: 71px 40px;
+	padding: 150px 60px;
 
 	.wrapper {
 		margin-top: 50px;
         margin-bottom: 30px;
 	
 	.wrapper-title {
-       
-	margin-bottom: 25px;
+       font-size: 50px;
+	margin-bottom: 30px;
 	}
 }
 }
@@ -66,8 +67,12 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(6, minmax(300px, 1fr));
 
+	.empty-search {
+		margin-bottom: 100px;
+	}
 	.col {
 		height: 100%;
+
 	}
 }
 </style>

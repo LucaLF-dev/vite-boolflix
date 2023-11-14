@@ -77,8 +77,8 @@ export default {
         Language:<lang-flag :iso="item.original_language"  />
       </div>
       <div class="vote-stars">
-        Voto: <span v-for="n in getVote" ><font-awesome-icon class="star-icon voted" :icon="['fas', 'star']" /></span>
-      <span v-for="n in (this.maxVote - getVote)" ><font-awesome-icon class="star-icon" :icon="['fas', 'star']" /></span>
+        Voto: <span v-for="n in getVote"  :key="n" ><font-awesome-icon class="star-icon voted" :icon="['fas', 'star']" /></span>
+      <span v-for="n in (this.maxVote - getVote)" :key="n" ><font-awesome-icon class="star-icon" :icon="['fas', 'star']" /></span>
       </div>
       <!-- <p>{{ fixed }}</p> -->
       
@@ -92,7 +92,13 @@ export default {
    background-color: transparent;
    position: relative;
   
-   
+   .card-image {
+     
+     img {
+      aspect-ratio: 1/1.5;
+      object-fit: cover;
+     }
+   }
    
    .card-body {
         position: absolute;
@@ -113,6 +119,7 @@ export default {
           }
         }
    }
+
 
    &:hover {
     
